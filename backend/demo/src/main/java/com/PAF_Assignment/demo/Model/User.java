@@ -22,12 +22,9 @@ public class User {
 
     private String password;
 
-     private String email;
+    private String email;
 
-    private String address;
-    
-
-    
+    private String address; 
 
 
     
