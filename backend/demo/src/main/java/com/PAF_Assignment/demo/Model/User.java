@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class User {
     @Id
-    private String id; // MongoDB uses String for ObjectId
+    private Integer id; // MongoDB uses String for ObjectId
 
     private String name;
     
