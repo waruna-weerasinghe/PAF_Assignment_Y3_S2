@@ -18,16 +18,16 @@ public class User {
 
     private String name;
     
-    private Number telephone;
+    private Integer telephone;
 
-    // private String password;
+    private String password;
 
-    // private String email;
+    private String email;
 
-    // private Number address;
+    private String address;
     
 
-    // private Date birthDate;
+    
 
 
     
