@@ -1,11 +1,22 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Register from './components/User_Management/Register';
+import Login from './components/User_Management/Login';
+import Profile from './components/User_Management/Profile';
 
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
-    </div>
+    <Router>
+      <nav>
+        <Link to="/">Register</Link> | <Link to="/login">Login</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </Router>
   );
 }
 
