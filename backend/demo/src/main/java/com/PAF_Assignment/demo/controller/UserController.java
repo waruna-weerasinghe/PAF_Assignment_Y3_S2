@@ -1,36 +1,25 @@
-package com.PAF_Assignment.demo.controller;
+package com.PAF_Assignment.demo.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.PAF_Assignment.demo.Model.User;
-import com.PAF_Assignment.demo.Repository.UserRepo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-
+import Service.UserService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping
-@CrossOrigin
-
+@RequestMapping("/api")
+@RequiredArgsConstructor
 public class UserController {
 
-@Autowired
-UserRepo userRepo;
+    private final UserService userService;
 
-    @PostMapping("/addUser")
-    public void addUser(@RequestBody User user) {
-        userRepo.save(user);
-        
+    @PostMapping("/user")
+    public User user(@RequestBody User user) {
+        return userService.postUser(user);
     }
-        
-    
-    
-    
 
 }
