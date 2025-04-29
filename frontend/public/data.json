@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "user": {
+      "name": "Alice",
+      "profilePicture": "/users/user1.jpg"
+    },
+    "title": "Chocolate Heaven 🍫",
+    "description": "Just baked this beauty!",
+    "image": "/images/cake1.jpg",
+    "createdAt": "2 hours ago"
+  },
+  {
+    "id": 2,
+    "user": {
+      "name": "Bob",
+      "profilePicture": "/users/user2.jpg"
+    },
+    "title": "Vanilla Dream ☁️",
+    "description": "Softest vanilla cake ever!",
+    "image": "/images/cake2.jpg",
+    "createdAt": "1 day ago"
+  },
+  {
+    "id": 3,
+    "user": {
+      "name": "Charlie",
+      "profilePicture": "/users/user3.jpg"
+    },
+    "title": "Red Velvet Delight 🍰",
+    "description": "A slice of heaven with cream cheese frosting.",
+    "image": "/images/cake3.jpg",
+    "createdAt": "3 days ago"
+  },
+  {
+    "id": 4,
+    "user": {
+      "name": "Diana",
+      "profilePicture": "/users/user4.jpg"
+    },
+    "title": "Lemon Zest Surprise 🍋",
+    "description": "Perfect balance of tart and sweet.",
+    "image": "/images/cake4.jpg",
+    "createdAt": "5 days ago"
+  }
+]
