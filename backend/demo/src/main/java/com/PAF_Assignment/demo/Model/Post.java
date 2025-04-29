@@ -20,11 +20,11 @@ public class Post {
     
     private Number telephone;
 
-    // private String password;
+    private String password;
 
-    // private String email;
+    private String email;
 
-    // private Number address;
+    private String address;
     
 
     // private Date birthDate;
