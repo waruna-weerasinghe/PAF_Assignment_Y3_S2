@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Document(collection = "posts")
 @Getter
 @Setter
@@ -14,12 +16,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Post {
     @Id
-    private String id; // MongoDB uses String for ObjectId
+    private String id;
 
-    private String name;
-    
-    private Number telephone;
+    private String description;
 
+<<<<<<< Updated upstream
     private String password;
 
     private String email;
@@ -31,4 +32,8 @@ public class Post {
 
 
     
+=======
+    // Stores filenames of uploaded images/videos
+    private List<String> mediaFiles;
+>>>>>>> Stashed changes
 }
