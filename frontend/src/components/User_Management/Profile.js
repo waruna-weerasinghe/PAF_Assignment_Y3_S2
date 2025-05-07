@@ -1,6 +1,8 @@
+// src/Profile.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+import './Profile.css';
 
 const Profile = () => {
   const location = useLocation();
@@ -37,16 +39,24 @@ const Profile = () => {
   };
 
   return user ? (
-    <div>
+    <div className="profile-container">
       <h2>User Profile</h2>
-      <input name="id" value={user.id} readOnly /><br />
-      <input name="name" value={user.name} onChange={handleChange} /><br />
-      <input name="telephone" value={user.telephone} onChange={handleChange} /><br />
-      <input name="password" value={user.password} onChange={handleChange} type="password" /><br />
-      <input name="email" value={user.email} onChange={handleChange} /><br />
-      <input name="address" value={user.address} onChange={handleChange} /><br />
-      <button onClick={handleUpdate}>Update</button>
-      <button onClick={handleDelete} style={{ marginLeft: '10px' }}>Delete Account</button>
+      <div className="profile-form">
+        {Object.entries(user).map(([key, value]) => (
+          <div className="form-group" key={key}>
+            <label>{key}</label>
+            <input
+              name={key}
+              value={value}
+              onChange={handleChange}
+              readOnly={key === 'id'}
+              type={key === 'password' ? 'password' : 'text'}
+            />
+          </div>
+        ))}
+        <button onClick={handleUpdate}>Update</button>
+        <button onClick={handleDelete} className="delete-button">Delete Account</button>
+      </div>
     </div>
   ) : (
     <div>Loading...</div>
