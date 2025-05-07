@@ -21,50 +21,46 @@ import java.util.List;
 @RestController
 @RequestMapping
 @CrossOrigin
-
 public class UserController {
 
-@Autowired
-UserRepo userRepo;
+    @Autowired
+    UserRepo userRepo;
 
     @PostMapping("/addUser")
     public void addUser(@RequestBody User user) {
+        if (user.getRole() == null) {
+            user.setRole("user");
+        }
         userRepo.save(user);
-        
     }
+
     @GetMapping("/getUser/{id}")
     public User getUser(@PathVariable Integer id) {
-
         return userRepo.findById(id).orElse(null);
-        
     }
-    @GetMapping("/getAllUsers")
-    public List<User> getAllUsers() {
 
+    @GetMapping("/admin/getAllUsers")
+    public List<User> getAllUsers() {
         return userRepo.findAll();
-        
     }
-    @PutMapping("/UpdateUser")
-    public void UpdateUser(@RequestBody User user) {
+
+    @PutMapping("/admin/updateUser")
+    public void adminUpdateUser(@RequestBody User user) {
         User data = userRepo.findById(user.getId()).orElse(null);
-        System.out.println(data);
-        //check if null
-        if(data != null) 
-        {
+        if (data != null) {
             data.setName(user.getName());
             data.setTelephone(user.getTelephone());
             data.setPassword(user.getPassword());
             data.setEmail(user.getEmail());
             data.setAddress(user.getAddress());
+            data.setRole(user.getRole()); // allow role updates
             userRepo.save(data);
         }
     }
 
-    @DeleteMapping("/deleteUser/{id}")
-    public void DeleteUser(@PathVariable Integer id) {
+    @DeleteMapping("/admin/deleteUser/{id}")
+    public void adminDeleteUser(@PathVariable Integer id) {
         userRepo.deleteById(id);
-        
     }
-
 }
 

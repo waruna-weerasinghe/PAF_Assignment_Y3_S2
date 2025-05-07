@@ -14,21 +14,13 @@ import lombok.Setter;
 @AllArgsConstructor
 public class User {
     @Id
-    private Integer id; // MongoDB uses String for ObjectId
+    private Integer id;
 
     private String name;
-    
     private Integer telephone;
-
     private String password;
-
     private String email;
-
     private String address;
-    
-
-    
-
-
-    
+    private String role = "user";  // "user" or "admin"
 }
+
