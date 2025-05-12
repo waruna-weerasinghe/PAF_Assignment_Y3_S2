@@ -1,0 +1,44 @@
+.post {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post:hover img {
+  transform: scale(1.05);
+}
+
+.post:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(173, 216, 230, 0.6); /* Light sky blue with transparency */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-text {
+  color: #003B73; /* Darker blue for contrast */
+  font-size: 1rem;
+  text-align: center;
+  padding: 0 1rem;
+  font-weight: 600;
+}
