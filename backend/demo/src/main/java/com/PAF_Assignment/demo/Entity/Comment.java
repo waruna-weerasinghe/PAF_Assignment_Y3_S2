@@ -1,11 +1,15 @@
-package com.PAF_Assignment.demo;
+package com.PAF_Assignment.demo.Entity;
 
 import jakarta.persistence.*; // ✅ Use Jakarta Persistence (JPA 3+)
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Table(name = "COMMENT")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Comment {
 
     @Id
