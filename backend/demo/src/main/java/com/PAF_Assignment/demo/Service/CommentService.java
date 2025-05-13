@@ -19,4 +19,18 @@ public class CommentService {
 
     }
 
+    public Comment updateDetail(Comment comment) {
+
+        Comment updateComment = commentRepo.findById(comment.getId()).orElse(null);
+        if (updateComment != null) {
+
+            updateComment.setMark(comment.getMark());
+            updateComment.setName(comment.getName());
+            commentRepo.save(updateComment);
+            return updateComment;
+        }
+        return null;
+
+    }
+
 }

@@ -8,6 +8,8 @@ import com.PAF_Assignment.demo.Repository.CommentRepo;
 import com.PAF_Assignment.demo.Service.CommentService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 
@@ -20,6 +22,14 @@ public class CommentController {
     public Comment postDetails(@RequestBody Comment comment) {
 
         return commentService.saveDetails(comment);
+
+    }
+
+    @PutMapping("/updateComment")
+
+    public Comment updateCommentDetails(@RequestBody Comment comment) {
+
+        return commentService.updateDetail(comment);
 
     }
 
