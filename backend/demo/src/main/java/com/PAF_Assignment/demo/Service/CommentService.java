@@ -33,4 +33,11 @@ public class CommentService {
 
     }
 
+    public String deleteComment(int id) {
+
+        commentRepo.deleteById(id);
+        return "deleted" + id;
+
+    }
+
 }
