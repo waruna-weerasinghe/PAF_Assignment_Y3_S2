@@ -35,9 +35,13 @@ public class CommentService {
 
     public String deleteComment(int id) {
 
+        if(commentRepo.existsById(id)){
         commentRepo.deleteById(id);
         return "Comment is deleted" + id;
 
+    }else{
+
+        return "This id is not found to delete ";
     }
 
 }
