@@ -1,20 +1,12 @@
-package com.PAF_Assignment.demo.Controller;
+package com.PAF_Assignment.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.PAF_Assignment.demo.Model.Plan;
-import com.PAF_Assignment.demo.Model.User;
 import com.PAF_Assignment.demo.Repository.PlanRepo;
 
 @RestController
@@ -23,32 +15,32 @@ import com.PAF_Assignment.demo.Repository.PlanRepo;
 public class PlanController {
 
     @Autowired
-    PlanRepo planRepo;
+    Plan planRepo;
 
-     @PostMapping("/addPlan")
-    public void addUser(@RequestBody Plan plan) {
+    // Add a new Plan
+    @PostMapping("/addPlan")
+    public void addPlan(@RequestBody Plan plan) {
         planRepo.save(plan);
-        
     }
-    @GetMapping("/getPlan/{id}")
-    public Plan getUser(@PathVariable Integer id) {
 
+    // Get a Plan by ID
+    @GetMapping("/getPlan/{id}")
+    public Plan getPlan(@PathVariable String id) {
         return planRepo.findById(id).orElse(null);
-        
     }
+
+    // Get all Plans
     @GetMapping("/getAllPlans")
     public List<Plan> getAllPlans() {
-
         return planRepo.findAll();
-        
     }
+
+    // Update a Plan
     @PutMapping("/UpdatePlan")
-    public void UpdatePlan(@RequestBody Plan plan) {
-        Plan data = planRepo.findById(plan.getId()).orElse(null);
-        System.out.println(data);
-        //check if null
-        if(data != null) 
-        {
+    public void updatePlan(@RequestBody Plan plan) {
+        Optional<Plan> optionalPlan = planRepo.findById(plan.getId());
+        if (optionalPlan.isPresent()) {
+            Plan data = optionalPlan.get();
             data.setRname(plan.getRname());
             data.setIngredients(plan.getIngredients());
             data.setCategory(plan.getCategory());
@@ -56,10 +48,9 @@ public class PlanController {
         }
     }
 
+    // Delete a Plan
     @DeleteMapping("/deletePlan/{id}")
-    public void DeletePlan(@PathVariable Integer id) {
+    public void deletePlan(@PathVariable String id) {
         planRepo.deleteById(id);
-        
     }
-
 }
