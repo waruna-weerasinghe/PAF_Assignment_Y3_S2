@@ -7,20 +7,20 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "COMMENT")
+@Table(name = "LIKE_POST")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Comment {
+public class LikePost {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // ✅ Auto-increment ID
     @Column(name = "ID")
     private int id;
 
-    @Column(name = "MARK")
-    private int mark;
-
-    @Column(name = "NAME")
+    @Column(name = "Name")
     private String name;
+
+    @Column(name = "Reaction_Type")
+    private String react;
 
 }
