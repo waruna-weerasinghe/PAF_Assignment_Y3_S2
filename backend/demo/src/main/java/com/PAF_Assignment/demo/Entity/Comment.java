@@ -1,5 +1,7 @@
 package com.PAF_Assignment.demo.Entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*; // ✅ Use Jakarta Persistence (JPA 3+)
 import lombok.AllArgsConstructor;
 import lombok.Data;
