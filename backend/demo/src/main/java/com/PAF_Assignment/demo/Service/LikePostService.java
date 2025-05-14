@@ -18,4 +18,18 @@ public class LikePostService {
 
     }
 
+    public LikePost updateDetail(LikePost likePost) {
+
+        LikePost updateLikePost = likePostRepo.findById(likePost.getId()).orElse(null);
+        if (updateLikePost != null) {
+
+            updateLikePost.setReact(likePost.getReact());
+            updateLikePost.setName(likePost.getName());
+            likePostRepo.save(updateLikePost);
+            return updateLikePost;
+
+        }
+        return null;
+    }
+
 }
