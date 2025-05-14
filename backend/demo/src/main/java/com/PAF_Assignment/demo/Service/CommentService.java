@@ -37,7 +37,7 @@ public class CommentService {
 
         if (commentRepo.existsById(id)) {
             commentRepo.deleteById(id);
-            return "Comment is deleted" + id;
+            return "Comment is successfully deleted" + id;
 
         } else {
 
