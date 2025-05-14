@@ -8,6 +8,7 @@ import com.PAF_Assignment.demo.Entity.LikePost;
 import com.PAF_Assignment.demo.Service.LikePostService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
@@ -28,6 +29,13 @@ public class LikePostController {
     public LikePost updateLikeDetails(@RequestBody LikePost likePost) {
 
         return likePostService.updateDetail(likePost);
+
+    }
+
+    @DeleteMapping("/deleteLike/{id}")
+    public String deletefunction(@PathVariable int id) {
+
+        return likePostService.deleteLike(id);
 
     }
 

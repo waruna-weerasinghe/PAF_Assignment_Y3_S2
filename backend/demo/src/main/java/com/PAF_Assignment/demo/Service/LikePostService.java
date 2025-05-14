@@ -32,4 +32,11 @@ public class LikePostService {
         return null;
     }
 
+    public String deleteLike(int id) {
+
+        likePostRepo.deleteById(id);
+        return "Removed the react of this post" + id;
+
+    }
+
 }
