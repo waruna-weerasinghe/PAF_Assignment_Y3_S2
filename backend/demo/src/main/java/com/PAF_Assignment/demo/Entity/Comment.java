@@ -23,4 +23,7 @@ public class Comment {
     @Column(name = "NAME")
     private String name;
 
+    @Column(name = "COMMENT")
+    private String comment;
+
 }
